@@ -285,7 +285,7 @@
   dependencies:
     bs58 "^6.0.0"
 
-"@mysten/dapp-kit@0.14.44":
+"@mysten/dapp-kit@^0.14.44":
   version "0.14.44"
   resolved "https://registry.npmmirror.com/@mysten/dapp-kit/-/dapp-kit-0.14.44.tgz#e8737c9e57b363bce4193f053e977dd39785d290"
   integrity sha512-5b9Xr5TKQEX/jyYC+RIknAw8g6gmz1su0u1FIYCjek+5mU5dQvO0PIp88bwfjxgCyswtCgSHP/atxiiK1mextQ==
@@ -302,7 +302,7 @@
     clsx "^2.1.1"
     zustand "^4.5.4"
 
-"@mysten/sui@1.18.0":
+"@mysten/sui@1.18.0", "@mysten/sui@^1.18.0":
   version "1.18.0"
   resolved "https://registry.npmmirror.com/@mysten/sui/-/sui-1.18.0.tgz#9f7b4a456d0d2530b1eb569b8ebe32313ac7f619"
   integrity sha512-cFh5LxXZrXb/ZAD1dkKeQxzhgRYFXreyFGmI7w/JQWwdl+/0FrHJBwaWyTmGxJ/6ZC9SlaOPOk63flN7DbUurg==
@@ -1152,7 +1152,7 @@
   resolved "https://registry.npmmirror.com/@tanstack/query-core/-/query-core-5.62.15.tgz#ded0267ac31bd23f3c45ffc008dba85a25621e91"
   integrity sha512-wT20X14CxcWY8YLJ/1pnsXn/y1Q2uRJZYWW93PWRtZt+3/JlGZyiyTcO4pGnqycnP7CokCROAyatsraosqZsDA==
 
-"@tanstack/react-query@^5.50.1":
+"@tanstack/react-query@^5.62.15":
   version "5.62.15"
   resolved "https://registry.npmmirror.com/@tanstack/react-query/-/react-query-5.62.15.tgz#ecfe7187913e36c36630afedf4f8eff37247c400"
   integrity sha512-Ny3xxsOWmEQCFyHiV3CF7t6+QAV+LpBEREiXyllKR4+tStyd8smOAa98ZHmEx0ZNy36M31K8enifB5wTSYAKJw==
@@ -2099,6 +2099,11 @@ react-remove-scroll@^2.6.1:
     tslib "^2.1.0"
     use-callback-ref "^1.3.3"
     use-sidecar "^1.1.2"
+
+react-spinners@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.npmmirror.com/react-spinners/-/react-spinners-0.15.0.tgz#bb9536a3839ab4e1513bb98847d79cc1fc930b93"
+  integrity sha512-ZO3/fNB9Qc+kgpG3SfdlMnvTX6LtLmTnOogb3W6sXIaU/kZ1ydEViPfZ06kSOaEsor58C/tzXw2wROGQu3X2pA==
 
 react-style-singleton@^2.2.1, react-style-singleton@^2.2.2:
   version "2.2.3"
