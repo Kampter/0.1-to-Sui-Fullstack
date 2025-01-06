@@ -14,25 +14,24 @@ export function AssetList() {
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const assetService = new AssetService(suiClient, CONFIG.PACKAGE_ID);
-
-  async function loadAssets() {
-    if (!account) return;
-    
-    try {
-      setLoading(true);
-      setError(null);
-      const userAssets = await assetService.getAssetsByOwner(account.address);
-      setAssets(userAssets);
-    } catch (error) {
-      console.error('Error loading assets:', error);
-      setError('Failed to load assets. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  }
-
   useEffect(() => {
+    async function loadAssets() {
+      if (!account || !suiClient) return;
+      
+      try {
+        setLoading(true);
+        setError(null);
+        const assetService = new AssetService(suiClient, CONFIG.PACKAGE_ID);
+        const userAssets = await assetService.getAssetsByOwner(account.address);
+        setAssets(userAssets);
+      } catch (error) {
+        console.error('Error loading assets:', error);
+        setError('Failed to load assets. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    }
+
     loadAssets();
   }, [account, suiClient]);
 
@@ -91,12 +90,13 @@ export function AssetList() {
       </Flex>
 
       <Box p="4">
-        {showCreateForm ? (
-          <CreateAssetForm
-            onSuccess={handleCreateSuccess}
-            onCancel={() => setShowCreateForm(false)}
-          />
-        ) : assets.length === 0 ? (
+        <CreateAssetForm
+          open={showCreateForm}
+          onSuccess={handleCreateSuccess}
+          onCancel={() => setShowCreateForm(false)}
+        />
+
+        {assets.length === 0 ? (
           <Flex 
             direction="column" 
             align="center" 

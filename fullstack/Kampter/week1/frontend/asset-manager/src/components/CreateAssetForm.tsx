@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { useCurrentAccount, useSuiClient } from "@mysten/dapp-kit";
 import { Box, Button, TextField, Flex, Text } from "@radix-ui/themes";
+import * as Dialog from "@radix-ui/react-dialog";
 import { CONFIG } from "../config";
 import { TransactionBlock } from "@mysten/sui.js/transactions";
 
-type CreateAssetFormProps = {
+interface CreateAssetFormProps {
   onSuccess?: () => void;
   onCancel?: () => void;
-};
+  open: boolean;
+}
 
-export function CreateAssetForm(props: CreateAssetFormProps) {
-  const { onSuccess, onCancel } = props;
+export function CreateAssetForm({ onSuccess, onCancel, open }: CreateAssetFormProps) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
@@ -70,60 +71,77 @@ export function CreateAssetForm(props: CreateAssetFormProps) {
   };
 
   return (
-    <Box style={{
-      background: "var(--gray-2)",
-      borderRadius: "16px",
-      padding: "24px"
-    }}>
-      <form onSubmit={handleSubmit}>
-        <Flex direction="column" gap="4">
-          <Text size="5" weight="bold">
-            Create New Asset
-          </Text>
+    <Dialog.Root open={open}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="DialogOverlay" />
+        <Dialog.Content 
+          className="DialogContent"
+          style={{
+            maxWidth: 450,
+            background: "var(--gray-1)",
+            borderRadius: "24px",
+            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
+            border: "1px solid var(--gray-5)",
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            padding: '25px',
+            zIndex: 1000
+          }}
+        >
+          <Dialog.Title>
+            <Text size="5" weight="bold">Create New Asset</Text>
+          </Dialog.Title>
+          
+          <form onSubmit={handleSubmit}>
+            <Flex direction="column" gap="4">
+              <TextField.Root>
+                <TextField.Input
+                  placeholder="Asset Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </TextField.Root>
 
-          <TextField.Root>
-            <TextField.Input
-              placeholder="Asset Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </TextField.Root>
+              <TextField.Root>
+                <TextField.Input
+                  placeholder="Asset Description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  required
+                />
+              </TextField.Root>
 
-          <TextField.Root>
-            <TextField.Input
-              placeholder="Asset Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-          </TextField.Root>
+              {error && (
+                <Text color="red" size="2">
+                  {error}
+                </Text>
+              )}
 
-          {error && (
-            <Text color="red" size="2">
-              {error}
-            </Text>
-          )}
-
-          <Flex gap="3" mt="2">
-            <Button 
-              type="submit" 
-              disabled={loading}
-              style={{ borderRadius: "12px", flex: 1 }}
-            >
-              {loading ? "Creating..." : "Create Asset"}
-            </Button>
-            <Button 
-              type="button" 
-              variant="soft" 
-              onClick={onCancel}
-              style={{ borderRadius: "12px" }}
-            >
-              Cancel
-            </Button>
-          </Flex>
-        </Flex>
-      </form>
-    </Box>
+              <Flex gap="3" mt="4">
+                <Button 
+                  type="submit" 
+                  disabled={loading}
+                  style={{ flex: 1 }}
+                >
+                  {loading ? "Creating..." : "Create Asset"}
+                </Button>
+                <Dialog.Close>
+                  <Button 
+                    type="button" 
+                    variant="soft" 
+                    onClick={onCancel}
+                  >
+                    Cancel
+                  </Button>
+                </Dialog.Close>
+              </Flex>
+            </Flex>
+          </form>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 } 
