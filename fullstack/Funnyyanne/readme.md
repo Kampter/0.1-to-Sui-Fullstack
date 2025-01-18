@@ -9,7 +9,7 @@
 
 ## 作业
 - [✅] 第一周:![任务截图:task1_1-task1_3](./images/task1_1.png)
-- [✅] 第二周:https://funnyyanne.walrus.site/#/coins
+- [] 第二周:https://funnyyanne.walrus.site/#/coins
 - [] 第三周:
 - [] 第四周:
 
@@ -27,7 +27,7 @@
 
 - [✅] 第一周:![学习记录截图](./images/week1学习记录.png)
 - [✅] 第二周:![学习记录截图](./images/week2直播1.png)
-- [] 第三周:![学习记录截图](./images/你的图片地址)
+- [✅] 第三周:![学习记录截图](./images/week3直播2.png)
 - [] 第四周:![学习记录截图](./images/你的图片地址)
 
 ## 参加直播答疑

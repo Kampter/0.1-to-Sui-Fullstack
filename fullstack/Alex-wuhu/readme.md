@@ -7,7 +7,7 @@
 
 ## 作业
 -  第一周: ![Week1](./images/Week1Result.png)
-- [] 第二周:
+-  第二周: ![Week1](./images/Week2Result.png)
 - [] 第三周:
 - [] 第四周:
 

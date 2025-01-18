@@ -10,8 +10,8 @@
 
 ## 作业
 - [x] 第一周: ![week1](./images/week1.gif)
-- [] 第二周:
-- [] 第三周:
+- [x] 第二周: ![week2](./images/week2.gif)
+- [x] 第三周: ![week3](./images/week3.gif)
 - [] 第四周:
 
 
@@ -30,8 +30,13 @@
 - [x] 第一周:
 ![week1-1](./images/week1-1.png)
 ![week1-2](./images/week1-2.png)
-- [] 第二周:![学习记录截图](./images/你的图片地址)
-- [] 第三周:![学习记录截图](./images/你的图片地址)
+- [x] 第二周:
+![week2-1](./images/week2-1.png)
+![week2-2](./images/week2-2.png)
+![week2-3](./images/week2-3.png)
+- [x] 第三周:
+![week3-1](./images/week3-1.png)
+![week3-2](./images/week3-2.png)
 - [] 第四周:![学习记录截图](./images/你的图片地址)
 
 ## 参加直播答疑
